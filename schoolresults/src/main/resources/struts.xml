@@ -5,7 +5,7 @@
 
 <struts>
 	<package name="pages" namespace="/pages" extends="struts-default">
-		<action name="main" class="com.cinglevue.action.MainAction">
+		<action name="main" class="mainAction">
 			<result name="DataLoaded">main.jsp</result>
 		</action>
 	</package>

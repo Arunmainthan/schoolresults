@@ -12,6 +12,7 @@ import org.hibernate.Session;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.core.io.Resource;
 
 import com.cinglevue.domain.Result;
 import com.cinglevue.domain.School;
@@ -22,6 +23,16 @@ public class MainAction {
 
   //List of schools
   private List<School> schoolList;
+  
+  private Resource  jsonFile;
+
+  public Resource getJsonFile() {
+    return jsonFile;
+  }
+
+  public void setJsonFile(Resource jsonFile) {
+    this.jsonFile = jsonFile;
+  }
 
   public List<School> getSchoolList() {
     return schoolList;
@@ -51,7 +62,8 @@ public class MainAction {
     Set<Result> results = new HashSet<Result>();
     try {
 
-      Object obj = parser.parse(new FileReader("d://data.json"));
+      
+      Object obj = parser.parse(new FileReader(jsonFile.getFile()));
 
       JSONObject jsonObject = (JSONObject) obj;
 

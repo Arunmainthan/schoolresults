@@ -13,6 +13,10 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "subject", catalog = "json", uniqueConstraints = @UniqueConstraint(columnNames = "SUBJECT_NAME"))
 public class Subject implements java.io.Serializable{
   
+  public Subject() {
+    super();
+  }
+
   private Integer subjectId;
   private String subjectName;
   
