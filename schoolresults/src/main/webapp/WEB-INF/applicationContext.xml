@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
  
- 	<bean id="mainAction" class="com.cinglevue.action.MainAction">
+ 	<bean id="displayResultsAction" class="com.cinglevue.action.ResultsAction">
 		<property name="jsonFile" value="classpath:data.json" />	
 	</bean> 
 </beans>

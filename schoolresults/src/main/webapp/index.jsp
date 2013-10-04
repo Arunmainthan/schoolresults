@@ -1,6 +1,6 @@
 <html>
 <head>
-<META HTTP-EQUIV="Refresh" CONTENT="1;URL=pages/main.action">
+<META HTTP-EQUIV="Refresh" CONTENT="1;URL=pages/displayResults.action">
 </head>
 <body>
 </body>

@@ -19,7 +19,7 @@ import com.cinglevue.domain.School;
 import com.cinglevue.domain.Subject;
 import com.cinglevue.util.HibernateUtil;
 
-public class MainAction {
+public class ResultsAction {
 
   //List of schools
   private List<School> schoolList;
