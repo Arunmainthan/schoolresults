@@ -17,14 +17,42 @@ import org.springframework.core.io.Resource;
 import com.cinglevue.domain.Result;
 import com.cinglevue.domain.School;
 import com.cinglevue.domain.Subject;
+import com.cinglevue.service.ResultsService;
 import com.cinglevue.util.HibernateUtil;
 
 public class ResultsAction {
 
-  //List of schools
-  private List<School> schoolList;
-  
-  private Resource  jsonFile;
+  // Results to pass to JSPs
+  List<Result> results;
+  public List<Result> getResults() {
+    return results;
+  }
+
+  public void setResults(List<Result> results) {
+    this.results = results;
+  }
+
+  private ResultsService resultsService;
+
+  public ResultsService getResultsService() {
+    return resultsService;
+  }
+
+  public void setResultsService(ResultsService resultsService) {
+    this.resultsService = resultsService;
+  }
+
+  private Resource jsonFile;
+
+  private String sortBy;
+
+  public String getSortBy() {
+    return sortBy;
+  }
+
+  public void setSortBy(String sortBy) {
+    this.sortBy = sortBy;
+  }
 
   public Resource getJsonFile() {
     return jsonFile;
@@ -34,21 +62,21 @@ public class ResultsAction {
     this.jsonFile = jsonFile;
   }
 
-  public List<School> getSchoolList() {
-    return schoolList;
-  }
+  // // all struts logic here
+  // public String execute() {
+  // Session session = HibernateUtil.getSessionFactory().openSession();
+  // Result result = (Result)session.get(Result.class, new Integer(1));
+  // if(result == null){
+  // initializeData();
+  // }
+  // return "DataLoaded";
+  //
+  // }
+  // list all customers
+  public String displayResults() throws Exception {
 
-  public void setSchoolList(List<School> schoolList) {
-    this.schoolList = schoolList;
-  }
+    results = resultsService.getAllResults();
 
-  // all struts logic here
-  public String execute() {
-    Session session = HibernateUtil.getSessionFactory().openSession();
-    Result result = (Result)session.get(Result.class, new Integer(1));
-    if(result == null){
-      initializeData();
-    }
     return "DataLoaded";
 
   }
@@ -62,7 +90,7 @@ public class ResultsAction {
     Set<Result> results = new HashSet<Result>();
     try {
 
-      
+
       Object obj = parser.parse(new FileReader(jsonFile.getFile()));
 
       JSONObject jsonObject = (JSONObject) obj;
@@ -123,8 +151,6 @@ public class ResultsAction {
 
 
 
-  
-    
   }
 
 }

@@ -5,7 +5,8 @@
 
 <struts>
 	<package name="pages" namespace="/pages" extends="struts-default">
-		<action name="displayResults" class="displayResultsAction">
+		<action name="displayAllResults" class="resultsAction" method="displayResults">
+			<param name="sortBy">None</param>
 			<result name="DataLoaded">main.jsp</result>
 		</action>
 	</package>
