@@ -63,7 +63,7 @@ public class Result implements Serializable {
     this.resultID = resultID;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+  @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
   @JoinColumn(name = "SCHOOL_ID", nullable = false)
   public School getSchool() {
     return school;
@@ -73,7 +73,7 @@ public class Result implements Serializable {
     this.school = school;
   }
 
-  @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+  @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
   @JoinColumn(name = "SUBJECT_ID", nullable = false)
   public Subject getSubject() {
     return subject;
