@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.hibernate.Session;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -18,12 +17,23 @@ import com.cinglevue.domain.Result;
 import com.cinglevue.domain.School;
 import com.cinglevue.domain.Subject;
 import com.cinglevue.service.ResultsService;
-import com.cinglevue.util.HibernateUtil;
 
 public class ResultsAction {
 
   // Results to pass to JSPs
   List<Result> results;
+  List<Subject> uniqueSubjects;
+  private Resource jsonFile;
+  private String sortBy;
+
+  public List<Subject> getUniqueSubjects() {
+    return uniqueSubjects;
+  }
+
+  public void setUniqueSubjects(List<Subject> uniqueSubjects) {
+    this.uniqueSubjects = uniqueSubjects;
+  }
+
   public List<Result> getResults() {
     return results;
   }
@@ -41,10 +51,6 @@ public class ResultsAction {
   public void setResultsService(ResultsService resultsService) {
     this.resultsService = resultsService;
   }
-
-  private Resource jsonFile;
-
-  private String sortBy;
 
   public String getSortBy() {
     return sortBy;
@@ -76,6 +82,10 @@ public class ResultsAction {
   public String displayResults() throws Exception {
 
     results = resultsService.getAllResults();
+    if (this.sortBy == null) {
+      uniqueSubjects = resultsService.getAllSubjects();
+
+    }
 
     return "DataLoaded";
 
@@ -135,12 +145,12 @@ public class ResultsAction {
                 factoredGainY3Y5, glgY3Y5, latestGainInGainY3Y5);
         if (!results.contains(result)) {
           results.add(result);
-          Session session = HibernateUtil.getSessionFactory().openSession();
+          // Session session = HibernateUtil.getSessionFactory().openSession();
           System.out.println("Hibernate one to many (Annotation)");
 
-          session.beginTransaction();
-          session.save(result);
-          session.getTransaction().commit();
+          // session.beginTransaction();
+          // session.save(result);
+          // session.getTransaction().commit();
         }
       }
 

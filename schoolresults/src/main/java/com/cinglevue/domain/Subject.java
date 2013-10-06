@@ -44,4 +44,9 @@ public class Subject implements java.io.Serializable{
     super();
     this.subjectName = subjectName;
   }
+  
+  @Override
+  public String toString(){
+    return subjectName;    
+  }
 }

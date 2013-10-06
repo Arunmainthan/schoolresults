@@ -83,7 +83,7 @@ public class Result implements Serializable {
     this.subject = subject;
   }
 
-  @Column(name = "latestY3", unique = true, nullable = false, length = 20)
+  @Column(name = "latestY3", unique = false, nullable = false, length = 20)
   public Double getLatestY3() {
     return latestY3;
   }
@@ -92,7 +92,7 @@ public class Result implements Serializable {
     this.latestY3 = latestY3;
   }
 
-  @Column(name = "latestY5", unique = true, nullable = false, length = 20)
+  @Column(name = "latestY5", unique = false, nullable = false, length = 20)
   public Double getLatestY5() {
     return latestY5;
   }
@@ -101,7 +101,7 @@ public class Result implements Serializable {
     this.latestY5 = latestY5;
   }
 
-  @Column(name = "latestY7", unique = true, nullable = false, length = 20)
+  @Column(name = "latestY7", unique = false, nullable = false, length = 20)
   public Double getLatestY7() {
     return latestY7;
   }
@@ -110,7 +110,7 @@ public class Result implements Serializable {
     this.latestY7 = latestY7;
   }
 
-  @Column(name = "latestY9", unique = true, nullable = false, length = 20)
+  @Column(name = "latestY9", unique = false, nullable = false, length = 20)
   public Double getLatestY9() {
     return latestY9;
   }
@@ -119,7 +119,7 @@ public class Result implements Serializable {
     this.latestY9 = latestY9;
   }
 
-  @Column(name = "rawGainY3Y5", unique = true, nullable = false, length = 20)
+  @Column(name = "rawGainY3Y5", unique = false, nullable = false, length = 20)
   public Double getRawGainY3Y5() {
     return rawGainY3Y5;
   }
@@ -128,7 +128,7 @@ public class Result implements Serializable {
     this.rawGainY3Y5 = rawGainY3Y5;
   }
 
-  @Column(name = "factoredGainY3Y5", unique = true, nullable = false, length = 20)
+  @Column(name = "factoredGainY3Y5", unique = false, nullable = false, length = 20)
   public Double getFactoredGainY3Y5() {
     return factoredGainY3Y5;
   }
@@ -137,7 +137,7 @@ public class Result implements Serializable {
     this.factoredGainY3Y5 = factoredGainY3Y5;
   }
 
-  @Column(name = "glgY3Y5", unique = true, nullable = false, length = 20)
+  @Column(name = "glgY3Y5", unique = false, nullable = false, length = 20)
   public Double getGlgY3Y5() {
     return glgY3Y5;
   }
@@ -146,7 +146,7 @@ public class Result implements Serializable {
     this.glgY3Y5 = glgY3Y5;
   }
 
-  @Column(name = "latestGainInGainY3Y5", unique = true, nullable = false, length = 20)
+  @Column(name = "latestGainInGainY3Y5", unique = false, nullable = false, length = 20)
   public Double getLatestGainInGainY3Y5() {
     return latestGainInGainY3Y5;
   }
